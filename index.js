@@ -21,13 +21,13 @@ const todoList = () => {
 
     const toDisplayableList = (list) => {
         let output = "";
-        list.forEach((task) => {
+        list.forEach((task, index, array) => {
             output +=
                 (task.completed ? "[x] " : "[ ] ") +
                 task.title +
                 " " +
                 (task.dueDate != formattedDate(new Date()) ? task.dueDate : "") +
-                "\n";
+                (index == array.length - 1 ? "" : "\n");
         });
         return output;
     }
